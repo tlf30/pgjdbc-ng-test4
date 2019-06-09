@@ -119,7 +119,7 @@ ALTER TABLE users OWNER TO test2;
 INSERT INTO users (a, b, data) VALUES (
     'temp1', 
     'temp2',
-    ROW(
+    ROW( /* data */
         array[]::II[],
         array[]::Q[],
         array[              

@@ -139,15 +139,15 @@ public class Q implements SQLData {
     this.a = in.readString();
     this.b = in.readString();
     this.c = in.readString();
-    this.d = in.readBoolean();
-    this.e = in.readBoolean();
-    this.f = in.readBoolean();
+    this.d = in.readObject(Boolean.class);
+    this.e = in.readObject(Boolean.class);
+    this.f = in.readObject(Boolean.class);
     this.g = in.readObject(String[].class);
     this.h = in.readString();
     this.i = in.readObject(Qi[].class);
     this.j = in.readObject(Qf[].class);
     this.k = in.readObject(Qs[].class);
-    this.l = in.readInt();
+    this.l = in.readObject(Integer.class);
   }
 
   @Override
@@ -155,14 +155,14 @@ public class Q implements SQLData {
     out.writeString(this.a);
     out.writeString(this.b);
     out.writeString(this.c);
-    out.writeBoolean(this.d);
-    out.writeBoolean(this.e);
-    out.writeBoolean(this.f);
+    out.writeObject(this.d, JDBCType.BOOLEAN);
+    out.writeObject(this.e, JDBCType.BOOLEAN);
+    out.writeObject(this.f, JDBCType.BOOLEAN);
     out.writeObject(this.g, JDBCType.ARRAY);
     out.writeString(this.h);
     out.writeObject(this.i, JDBCType.ARRAY);
     out.writeObject(this.j, JDBCType.ARRAY);
     out.writeObject(this.k, JDBCType.ARRAY);
-    out.writeInt(this.l);
+    out.writeObject(this.l, JDBCType.INTEGER);
   }
 }

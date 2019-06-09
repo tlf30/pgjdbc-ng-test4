@@ -107,26 +107,26 @@ public class M implements SQLData {
   @Override
   public void readSQL(SQLInput in, String typeName) throws SQLException {
     this.a = in.readString();
-    this.b = in.readFloat();
-    this.x = in.readFloat();
-    this.y = in.readFloat();
-    this.z = in.readFloat();
-    this.i = in.readFloat();
-    this.j = in.readFloat();
-    this.k = in.readFloat();
+    this.b = in.readObject(Float.class);
+    this.x = in.readObject(Float.class);
+    this.y = in.readObject(Float.class);
+    this.z = in.readObject(Float.class);
+    this.i = in.readObject(Float.class);
+    this.j = in.readObject(Float.class);
+    this.k = in.readObject(Float.class);
     this.c = in.readObject(G[].class);
   }
 
   @Override
   public void writeSQL(SQLOutput out) throws SQLException {
     out.writeString(this.a);
-    out.writeFloat(this.b);
-    out.writeFloat(this.x);
-    out.writeFloat(this.y);
-    out.writeFloat(this.z);
-    out.writeFloat(this.i);
-    out.writeFloat(this.j);
-    out.writeFloat(this.k);
+    out.writeObject(this.b, JDBCType.REAL);
+    out.writeObject(this.x, JDBCType.REAL);
+    out.writeObject(this.y, JDBCType.REAL);
+    out.writeObject(this.z, JDBCType.REAL);
+    out.writeObject(this.i, JDBCType.REAL);
+    out.writeObject(this.j, JDBCType.REAL);
+    out.writeObject(this.k, JDBCType.REAL);
     out.writeObject(this.c, JDBCType.ARRAY);
   }
 }

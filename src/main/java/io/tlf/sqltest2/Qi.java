@@ -1,5 +1,6 @@
 package io.tlf.sqltest2;
 
+import java.sql.JDBCType;
 import java.sql.SQLData;
 import java.sql.SQLException;
 import java.sql.SQLInput;
@@ -36,12 +37,12 @@ public class Qi implements SQLData {
   @Override
   public void readSQL(SQLInput in, String typeName) throws SQLException {
     this.key = in.readString();
-    this.value = in.readInt();
+    this.value = in.readObject(Integer.class);
   }
 
   @Override
   public void writeSQL(SQLOutput out) throws SQLException {
     out.writeString(this.key);
-    out.writeInt(this.value);
+    out.writeObject(this.value, JDBCType.INTEGER);
   }
 }

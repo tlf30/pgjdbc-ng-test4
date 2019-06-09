@@ -47,14 +47,14 @@ public class Ii implements SQLData {
   @Override
   public void readSQL(SQLInput in, String typeName) throws SQLException {
     this.a = in.readString();
-    this.b = in.readInt();
+    this.b = in.readObject(Integer.class);
     this.c = in.readObject(S[].class);
   }
 
   @Override
   public void writeSQL(SQLOutput out) throws SQLException {
     out.writeString(this.a);
-    out.writeInt(this.b);
+    out.writeObject(this.b, JDBCType.INTEGER);
     out.writeObject(this.c, JDBCType.ARRAY);
   }
 }

@@ -1,5 +1,6 @@
 package io.tlf.sqltest2;
 
+import java.sql.JDBCType;
 import java.sql.SQLData;
 import java.sql.SQLException;
 import java.sql.SQLInput;
@@ -85,23 +86,23 @@ public class L implements SQLData {
 
   @Override
   public void readSQL(SQLInput in, String typeName) throws SQLException {
-    this.x = in.readFloat();
-    this.y = in.readFloat();
-    this.z = in.readFloat();
-    this.i = in.readFloat();
-    this.j = in.readFloat();
-    this.k = in.readFloat();
+    this.x = in.readObject(Float.class);
+    this.y = in.readObject(Float.class);
+    this.z = in.readObject(Float.class);
+    this.i = in.readObject(Float.class);
+    this.j = in.readObject(Float.class);
+    this.k = in.readObject(Float.class);
     this.a = in.readString();
   }
 
   @Override
   public void writeSQL(SQLOutput out) throws SQLException {
-    out.writeFloat(this.x);
-    out.writeFloat(this.y);
-    out.writeFloat(this.z);
-    out.writeFloat(this.i);
-    out.writeFloat(this.j);
-    out.writeFloat(this.k);
+    out.writeObject(this.x, JDBCType.REAL);
+    out.writeObject(this.y, JDBCType.REAL);
+    out.writeObject(this.z, JDBCType.REAL);
+    out.writeObject(this.i, JDBCType.REAL);
+    out.writeObject(this.j, JDBCType.REAL);
+    out.writeObject(this.k, JDBCType.REAL);
     out.writeString(this.a);
   }
 }

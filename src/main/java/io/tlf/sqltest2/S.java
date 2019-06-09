@@ -98,23 +98,23 @@ public class S implements SQLData {
   public void readSQL(SQLInput in, String typeName) throws SQLException {
     this.a = in.readString();
     this.b = in.readString();
-    this.c = in.readLong();
-    this.d = in.readFloat();
-    this.e = in.readFloat();
-    this.f = in.readFloat();
+    this.c = in.readObject(Long.class);
+    this.d = in.readObject(Float.class);
+    this.e = in.readObject(Float.class);
+    this.f = in.readObject(Float.class);
     this.g = in.readObject(R[].class);
-    this.h = in.readBoolean();
+    this.h = in.readObject(Boolean.class);
   }
 
   @Override
   public void writeSQL(SQLOutput out) throws SQLException {
     out.writeString(this.a);
     out.writeString(this.b);
-    out.writeLong(this.c);
-    out.writeFloat(this.d);
-    out.writeFloat(this.e);
-    out.writeFloat(this.f);
+    out.writeObject(this.c, JDBCType.BIGINT);
+    out.writeObject(this.d, JDBCType.REAL);
+    out.writeObject(this.e, JDBCType.REAL);
+    out.writeObject(this.f, JDBCType.REAL);
     out.writeObject(this.g, JDBCType.ARRAY);
-    out.writeBoolean(this.h);
+    out.writeObject(this.h, JDBCType.BOOLEAN);
   }
 }

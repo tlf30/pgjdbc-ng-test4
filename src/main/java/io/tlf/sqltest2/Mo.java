@@ -1,5 +1,6 @@
 package io.tlf.sqltest2;
 
+import java.sql.JDBCType;
 import java.sql.SQLData;
 import java.sql.SQLException;
 import java.sql.SQLInput;
@@ -36,12 +37,12 @@ public class Mo implements SQLData {
   @Override
   public void readSQL(SQLInput in, String typeName) throws SQLException {
     this.name = in.readString();
-    this.value = in.readFloat();
+    this.value = in.readObject(Float.class);
   }
 
   @Override
   public void writeSQL(SQLOutput out) throws SQLException {
     out.writeString(this.name);
-    out.writeFloat(this.value);
+    out.writeObject(this.value, JDBCType.REAL);
   }
 }

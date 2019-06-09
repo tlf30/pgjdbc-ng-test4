@@ -56,16 +56,16 @@ public class R implements SQLData {
 
   @Override
   public void readSQL(SQLInput in, String typeName) throws SQLException {
-    this.a = in.readLong();
-    this.b = in.readLong();
+    this.a = in.readObject(Long.class);
+    this.b = in.readObject(Long.class);
     this.c = in.readString();
     this.d = in.readObject(Integer[].class);
   }
 
   @Override
   public void writeSQL(SQLOutput out) throws SQLException {
-    out.writeLong(this.a);
-    out.writeLong(this.b);
+    out.writeObject(this.a, JDBCType.BIGINT);
+    out.writeObject(this.b, JDBCType.BIGINT);
     out.writeString(this.c);
     out.writeObject(this.d, JDBCType.ARRAY);
   }

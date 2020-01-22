@@ -47,6 +47,8 @@ public class Main {
             //Create mappings
             Map map = con.getTypeMap();
             map.put("CONDITION", Condition.class);
+            map.put("TEST_OBJ", TestObj.class);
+            //map.put("TEST_OBJ")
             con.setTypeMap(map);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -60,13 +62,13 @@ public class Main {
             System.out.println("Reading test data");
             PreparedStatement pstmt1 = con.prepareStatement("SELECT * FROM data LIMIT 1");
             ResultSet result = pstmt1.executeQuery();
-            Condition cond = null;
+            TestObj data = null;
             if (result.next()) {
-                cond = result.getObject("cond", Condition.class);
+                data = result.getObject("obj", TestObj.class);
                 result.close();
             }
             pstmt1.close();
-            if (cond == null) {
+            if (data == null) {
                 System.out.println("DID NOT GET DATA");
                 //return;
             }
@@ -74,18 +76,20 @@ public class Main {
             ex.printStackTrace();
         }
         try {
+            TestObj data = new TestObj();
+            data.setCond(Condition.GOOD);
             System.out.println("Writing test data");
-            PreparedStatement pstmt2 = con.prepareStatement("UPDATE data SET tag=?, val=?, cond=?, ts=now()");
+            PreparedStatement pstmt2 = con.prepareStatement("UPDATE data SET tag=?, val=?, obj=?, ts=now()");
             pstmt2.setString(1, "XI_9945");
             pstmt2.setDouble(2, Math.random());
-            pstmt2.setObject(3, Condition.GOOD);
+            pstmt2.setObject(3, data);
             pstmt2.executeUpdate();
             pstmt2.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         //Build udt
-        executeGenerator(con, Arrays.asList(new String[]{"CONDITION"}));
+        executeGenerator(con, Arrays.asList(new String[]{"CONDITION", "TEST_OBJ"}));
         //Done
         con.close();
     }

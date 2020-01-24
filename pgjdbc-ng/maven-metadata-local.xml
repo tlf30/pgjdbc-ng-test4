@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.impossibl</groupId>
+  <artifactId>pgjdbc-ng</artifactId>
+  <versioning>
+    <release>0.9-PRTEST</release>
+    <versions>
+      <version>0.9-PRTEST</version>
+    </versions>
+    <lastUpdated>20200124211704</lastUpdated>
+  </versioning>
+</metadata>

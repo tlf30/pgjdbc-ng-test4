@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.impossibl.pgjdbc-ng.tools</groupId>
+  <artifactId>udt-gen</artifactId>
+  <versioning>
+    <release>0.9-PRTEST</release>
+    <versions>
+      <version>0.9-PRTEST</version>
+    </versions>
+    <lastUpdated>20200124211905</lastUpdated>
+  </versioning>
+</metadata>

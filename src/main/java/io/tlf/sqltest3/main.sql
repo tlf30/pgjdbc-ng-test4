@@ -1,7 +1,7 @@
 CREATE TYPE CONDITION AS ENUM ('good', 'bad', 'unknown');
 
 CREATE TYPE TEST_OBJ AS (
-    cond CONDITION;
+    cond CONDITION
 );
 
 CREATE TABLE data (

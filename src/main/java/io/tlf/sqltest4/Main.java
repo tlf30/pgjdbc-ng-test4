@@ -90,8 +90,8 @@ public class Main {
         }
 
         //Build udt
-        System.out.println("Generating");
-        executeGenerator(con, Arrays.asList(new String[]{"CONDITION", "TEST_OBJ"}));
+        //System.out.println("Generating");
+        //executeGenerator(con, Arrays.asList(new String[]{"CONDITION", "TEST_OBJ"}));
         //Done
         con.close();
         PGDriver.cleanup();

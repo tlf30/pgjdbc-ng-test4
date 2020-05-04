@@ -1,6 +1,7 @@
-package io.tlf.sqltest3;
+package io.tlf.sqltest4;
 
 import com.impossibl.postgres.jdbc.PGDataSource;
+import com.impossibl.postgres.jdbc.PGDriver;
 import com.impossibl.postgres.tools.UDTGenerator;
 
 import java.io.File;
@@ -20,7 +21,7 @@ public class Main {
     private static PGDataSource ds = new PGDataSource();
 
     public static void main(String[] args) throws SQLException {
-        System.out.println("**** Running Test3");
+        System.out.println("**** Running Test4");
         test3();
 
     }
@@ -48,7 +49,6 @@ public class Main {
             Map map = con.getTypeMap();
             map.put("CONDITION", Condition.class);
             map.put("TEST_OBJ", TestObj.class);
-            //map.put("TEST_OBJ")
             con.setTypeMap(map);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -57,7 +57,7 @@ public class Main {
             System.out.println("Connection null");
             return;
         }
-
+        
         try {
             System.out.println("Reading test data");
             PreparedStatement pstmt1 = con.prepareStatement("SELECT * FROM data LIMIT 1");
@@ -88,13 +88,16 @@ public class Main {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+
         //Build udt
+        System.out.println("Generating");
         executeGenerator(con, Arrays.asList(new String[]{"CONDITION", "TEST_OBJ"}));
         //Done
         con.close();
+        PGDriver.cleanup();
     }
 
     public static void executeGenerator(Connection connection, List<String> typeNames) {
-        new UDTGenerator(connection, "io.tlf.sqltest3", typeNames).generate(new File("src/main/java"));
+        new UDTGenerator(connection, "io.tlf.sqltest4", typeNames).generate(new File("src/main/java"));
     }
 }

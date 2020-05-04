@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.impossibl.pgjdbc-ng.tools:udt-gen:0.9-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/impossibl/pgjdbc-ng/tools/udt-gen/0.9-SNAPSHOT/udt-gen-0.9-20191113.015927-43.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/impossibl/pgjdbc-ng/tools/udt-gen/0.9-SNAPSHOT/udt-gen-0.9-20200411.180408-55.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/com/impossibl/pgjdbc-ng/tools/udt-gen/0.9-SNAPSHOT/udt-gen-0.9-20191113.015927-43-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/impossibl/pgjdbc-ng/tools/udt-gen/0.9-SNAPSHOT/udt-gen-0.9-20200411.180408-55-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/impossibl/pgjdbc-ng/tools/udt-gen/0.9-SNAPSHOT/udt-gen-0.9-20191113.015927-43-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/impossibl/pgjdbc-ng/tools/udt-gen/0.9-SNAPSHOT/udt-gen-0.9-20200411.180408-55-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

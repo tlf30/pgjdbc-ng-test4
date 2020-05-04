@@ -1,4 +1,4 @@
-package io.tlf.sqltest3;
+package io.tlf.sqltest4;
 
 import com.impossibl.postgres.api.jdbc.PGAnyType;
 import java.sql.SQLData;
@@ -53,6 +53,6 @@ public class TestObj implements SQLData {
 
   @Override
   public void writeSQL(SQLOutput out) throws SQLException {
-    out.writeString(this.cond.getLabel());
+    out.writeObject(this.cond.getLabel(), Condition.TYPE);
   }
 }

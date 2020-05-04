@@ -6,13 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="pgjdbc-ng-test3" />
-        <module name="pgjdbc-ng-test2" />
+        <module name="pgjdbc-ng-test4" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="pgjdbc-ng-test2" target="11" />
-      <module name="pgjdbc-ng-test3" target="11" />
+      <module name="pgjdbc-ng-test4" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

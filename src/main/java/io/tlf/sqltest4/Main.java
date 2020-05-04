@@ -9,9 +9,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author tlfal
@@ -20,13 +20,12 @@ public class Main {
 
     private static PGDataSource ds = new PGDataSource();
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, InterruptedException {
         System.out.println("**** Running Test4");
-        test3();
-
+        test4();
     }
 
-    public static void test3() throws SQLException {
+    public static void test4() throws SQLException, InterruptedException {
 
         //Create DB connection
         try {
@@ -92,9 +91,18 @@ public class Main {
         //Build udt
         //System.out.println("Generating");
         //executeGenerator(con, Arrays.asList(new String[]{"CONDITION", "TEST_OBJ"}));
+
         //Done
         con.close();
         PGDriver.cleanup();
+
+        Thread.sleep(1000); //Give stuff time to shutdown
+
+        Set<Thread> threadSet = Thread.getAllStackTraces().keySet();
+        System.out.println("Running threads");
+        for (Thread thread : threadSet) {
+            System.out.println(thread.getName());
+        }
     }
 
     public static void executeGenerator(Connection connection, List<String> typeNames) {
